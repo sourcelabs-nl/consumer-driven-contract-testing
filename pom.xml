@@ -27,7 +27,6 @@
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>
         <pact.version>4.6.9</pact.version>
-        <testcontainers.version>1.19.7</testcontainers.version>
     </properties>
 
     <dependencyManagement>

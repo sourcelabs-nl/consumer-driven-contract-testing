@@ -21,14 +21,18 @@ public class BaseTestClass {
 
     @BeforeEach
     public void setup() {
-//        EncoderConfig encoderConfig = new EncoderConfig().appendDefaultContentCharsetToContentTypeIfUndefined(false);
-//        RestAssuredMockMvc.config = new RestAssuredMockMvcConfig().encoderConfig(encoderConfig);
-//        RestAssuredMockMvc.webAppContextSetup(this.webApplicationContext);
-//
-//        setupMocksForVerifierTests();
+        EncoderConfig encoderConfig = new EncoderConfig().appendDefaultContentCharsetToContentTypeIfUndefined(false);
+        RestAssuredMockMvc.config = new RestAssuredMockMvcConfig().encoderConfig(encoderConfig);
+        RestAssuredMockMvc.webAppContextSetup(this.webApplicationContext);
+
+        setupMocksForVerifierTests();
     }
 
     @MockBean
     private CustomerService customerService;
 
+    private void setupMocksForVerifierTests() {
+        var customer = new Customer("cust123", new InvoiceAddress("1234AB", "123"));
+        when(customerService.getCustomerById("cust123")).thenReturn(customer);
+    }
 }

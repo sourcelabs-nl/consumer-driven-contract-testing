@@ -10,12 +10,15 @@ import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
+@AutoConfigureStubRunner(
+    stubsMode = StubRunnerProperties.StubsMode.LOCAL,
+    ids = {"nl.sourcelabs:customer-service:+:stubs:9999"}
+)
 class CustomerServiceContractTest {
 
     @Test
-    @Disabled // TODO
     void testGetCustomerByIdWithSpringCloudContract() {
-        var underTest = new CustomerService("...");
+        var underTest = new CustomerService("http://localhost:9999");
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());

@@ -18,17 +18,10 @@
                 <version>4.1.2</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <!-- Do not generate a verifier test even if there is a contract in the contracts folder -->
+                    <mavenTestSkip>true</mavenTestSkip>
                     <httpPort>9090</httpPort>
-                    <testFramework>JUNIT5</testFramework>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>nl.sourcelabs</groupId>
-                        <artifactId>customer-service</artifactId>
-                        <version>0.0.1-SNAPSHOT</version>
-                        <classifier>stubs</classifier>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -56,27 +49,9 @@
             <artifactId>spring-cloud-starter-contract-verifier</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>au.com.dius.pact</groupId>
-            <artifactId>consumer</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>au.com.dius.pact.consumer</groupId>
-            <artifactId>junit5</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
