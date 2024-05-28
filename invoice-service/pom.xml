@@ -12,17 +12,6 @@
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.cloud</groupId>-->
-<!--                <artifactId>spring-cloud-contract-maven-plugin</artifactId>-->
-<!--                <version>4.1.2</version>-->
-<!--                <extensions>true</extensions>-->
-<!--                <configuration>-->
-<!--                    <mavenTestSkip>true</mavenTestSkip>-->
-<!--                    <httpPort>9090</httpPort>-->
-<!--                    <testFramework>JUNIT5</testFramework>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
