@@ -15,7 +15,7 @@ class CustomerServiceContractTest {
     @Test
     @Disabled // TODO
     void testGetCustomerByIdWithSpringCloudContract() {
-        var underTest = new CustomerService("...");
+        var underTest = new CustomerService("http://localhost:9090");
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());

@@ -25,13 +25,13 @@ public class InvoiceController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> newInvoice(@RequestBody NewInvoiceRequest request) {
+    public ResponseEntity<Invoice> newInvoice(@RequestBody NewInvoiceRequest request) {
         var customer = customerService.getCustomerById(request.customerId());
 
         var invoice = new Invoice(request.invoiceAmountInCents(), request.invoiceDate(), request.description(), customer.customerId(), customer.invoiceAddress());
         var invoiceId = invoiceService.createInvoice(invoice);
 
-        return ResponseEntity.created(URI.create("/invoices/" + invoiceId)).build();
+        return ResponseEntity.created(URI.create("/invoices/" + invoiceId)).body(invoice);
     }
 
     @GetMapping("/{invoice_id}")
