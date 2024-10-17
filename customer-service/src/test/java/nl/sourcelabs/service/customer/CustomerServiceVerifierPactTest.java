@@ -6,7 +6,6 @@ import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
-import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import au.com.dius.pact.provider.spring.junit5.PactVerificationSpringProvider;
 import nl.sourcelabs.service.customer.model.Customer;
 import nl.sourcelabs.service.customer.model.InvoiceAddress;
@@ -25,7 +24,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @PactBroker
-public class CustomerServiceVerifierPact {
+public class CustomerServiceVerifierPactTest {
 
     @LocalServerPort
     private int port;
