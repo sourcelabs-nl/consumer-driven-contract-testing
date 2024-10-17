@@ -20,6 +20,7 @@
                 <configuration>
                     <httpPort>9090</httpPort>
                     <testFramework>JUNIT5</testFramework>
+                    <mavenTestSkip>true</mavenTestSkip><!-- skip generation of verifier tests -->
                 </configuration>
                 <goals>
                     <goal>convert</goal>
