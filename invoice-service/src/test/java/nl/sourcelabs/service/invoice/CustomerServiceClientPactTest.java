@@ -20,7 +20,26 @@ class CustomerServiceClientPactTest {
 
     @Pact(consumer = "invoice-service")
     public V4Pact getCustomerById(PactDslWithProvider builder) {
-        return null;
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+
+        return builder
+            .given("customer with customerId: cust123 exists")
+            .uponReceiving("get customer by id")
+            .path("/customers/cust123")
+            .method("GET")
+            .willRespondWith()
+            .status(200)
+            .headers(headers)
+            .body("""
+                {
+                    "customerId": "cust123",
+                    "invoiceAddress" : {
+                        "postalCode" : "1234AB",
+                        "houseNumber" : "123"
+                    }
+                }""")
+            .toPact(V4Pact.class);
     }
 
     @Test

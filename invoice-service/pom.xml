@@ -13,29 +13,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
-                <version>4.1.2</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <httpPort>9090</httpPort>
-                    <testFramework>JUNIT5</testFramework>
-                    <mavenTestSkip>true</mavenTestSkip><!-- skip generation of verifier tests -->
-                </configuration>
-                <goals>
-                    <goal>convert</goal>
-                    <goal>generateStubs</goal>
-                </goals>
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>nl.sourcelabs</groupId>-->
-<!--                        <artifactId>customer-service</artifactId>-->
-<!--                        <version>0.0.1-SNAPSHOT</version>-->
-<!--                        <classifier>stubs</classifier>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -75,9 +52,13 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-standalone</artifactId>
+            <version>3.0.1</version>
         </dependency>
 
         <dependency>
