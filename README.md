@@ -14,7 +14,7 @@ Run the following maven command on the invoice-service
 
 ```shell
 cd invoice-service
-mvn clean install pact:publish
+./mvnv clean install pact:publish
 ```
 
 Now go to http://localhost:9292 again, what has changed?
@@ -25,7 +25,7 @@ Run the following maven command on the customer-service
 
 ```shell
 cd customer-service
-mvn clean install
+./mvnv clean install
 ```
 
 # Fix the Pact
