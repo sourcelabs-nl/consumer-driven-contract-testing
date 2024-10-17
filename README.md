@@ -13,8 +13,7 @@ Now browse to http://localhost:9292
 Run the following maven command on the invoice-service 
 
 ```shell
-cd invoice-service
-./mvnv clean install pact:publish
+./mvnw -pl invoice-service clean install pact:publish
 ```
 
 Now go to http://localhost:9292 again, what has changed?
@@ -24,8 +23,7 @@ Now go to http://localhost:9292 again, what has changed?
 Run the following maven command on the customer-service
 
 ```shell
-cd customer-service
-./mvnv clean install
+./mvnv -pl customer-service clean install
 ```
 
 # Fix the Pact
