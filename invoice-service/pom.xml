@@ -13,17 +13,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
-                <version>4.1.2</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <!-- Do not generate a verifier test even if there is a contract in the contracts folder -->
-                    <mavenTestSkip>true</mavenTestSkip>
-                    <httpPort>9090</httpPort>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
