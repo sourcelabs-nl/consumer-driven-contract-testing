@@ -21,14 +21,18 @@
                     <httpPort>9090</httpPort>
                     <testFramework>JUNIT5</testFramework>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>nl.sourcelabs</groupId>
-                        <artifactId>customer-service</artifactId>
-                        <version>0.0.1-SNAPSHOT</version>
-                        <classifier>stubs</classifier>
-                    </dependency>
-                </dependencies>
+                <goals>
+                    <goal>convert</goal>
+                    <goal>generateStubs</goal>
+                </goals>
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>nl.sourcelabs</groupId>-->
+<!--                        <artifactId>customer-service</artifactId>-->
+<!--                        <version>0.0.1-SNAPSHOT</version>-->
+<!--                        <classifier>stubs</classifier>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -67,12 +71,6 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <dependency>

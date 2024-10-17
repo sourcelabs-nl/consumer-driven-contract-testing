@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 @Service
-public class CustomerService {
+public class CustomerServiceClient {
     private final RestClient restClient;
 
-    public CustomerService(@Value("${customer.service.base-url}") String baseUrl) {
+    public CustomerServiceClient(@Value("${customer.service.base-url}") String baseUrl) {
         restClient = RestClient.builder().baseUrl(baseUrl).build();
     }
 

@@ -2,23 +2,23 @@ package nl.sourcelabs.service.invoice;
 
 import nl.sourcelabs.service.invoice.model.Customer;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
-import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//@SpringBootTest
+@SpringBootTest
 //@AutoConfigureStubRunner(
-//    stubsMode = StubRunnerProperties.StubsMode.LOCAL,
-//    ids = {"nl.sourcelabs:customer-service:+:stubs:9999"}
+//    stubsMode = StubRunnerProperties.StubsMode.LOCAL
+////    ids = {"nl.sourcelabs:customer-service:+:stubs"}
 //)
-class CustomerServiceSCCTest {
+class CustomerServiceClientSCCTest {
 
-   // @Test
-    void testGetCustomerByIdWithSpringCloudContract() {
-        var underTest = new CustomerService("http://localhost:9999");
+//    @StubRunnerPort("nl.sourcelabs:customer-service")
+    private int stubRunnerPort;
+
+    @Test
+    void testGetCustomerById() {
+        var underTest = new CustomerServiceClient("http://localhost:"+ stubRunnerPort);
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());

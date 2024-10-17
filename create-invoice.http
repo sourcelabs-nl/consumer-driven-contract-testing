@@ -1,0 +1,9 @@
+POST http://localhost:8080/invoices
+Content-Type: application/json
+
+{
+  "customerId": "cust123",
+  "invoiceAmountInCents": 1234,
+  "invoiceDate": "2024-05-29",
+  "description": "training"
+}

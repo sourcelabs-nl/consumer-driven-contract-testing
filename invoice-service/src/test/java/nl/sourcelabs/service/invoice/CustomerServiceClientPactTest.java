@@ -16,10 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @PactConsumerTest
 @PactTestFor(providerName = "customer-service")
-class CustomerServicePactTest {
+class CustomerServiceClientPactTest {
 
     @Pact(consumer = "invoice-service")
-    public V4Pact productById(PactDslWithProvider builder) {
+    public V4Pact getCustomerById(PactDslWithProvider builder) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
 
@@ -43,9 +43,9 @@ class CustomerServicePactTest {
     }
 
     @Test
-    @PactTestFor(pactMethod = "productById")
+    @PactTestFor(pactMethod = "getCustomerById")
     public void testGetCustomerById(MockServer mockServer) {
-        var underTest = new CustomerService(mockServer.getUrl());
+        var underTest = new CustomerServiceClient(mockServer.getUrl());
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());

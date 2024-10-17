@@ -4,15 +4,16 @@ import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit5.WireMockRuntimeInfo;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import nl.sourcelabs.service.invoice.model.Customer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @WireMockTest // https://wiremock.org/docs/junit-jupiter/
-class CustomerServiceTest {
+class CustomerServiceClientTest {
 
-    @Test
-    void testGetCustomerById(WireMockRuntimeInfo wmRuntimeInfo) {
+    @BeforeEach
+    void beforeEach() {
         WireMock.stubFor(
             WireMock.get("/customers/cust123")
                 .willReturn(WireMock.aResponse()
@@ -27,8 +28,11 @@ class CustomerServiceTest {
                             }
                         """))
         );
+    }
 
-        var underTest = new CustomerService(wmRuntimeInfo.getHttpBaseUrl());
+    @Test
+    void testGetCustomerById(WireMockRuntimeInfo wmRuntimeInfo) {
+        var underTest = new CustomerServiceClient(wmRuntimeInfo.getHttpBaseUrl());
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());
@@ -38,7 +42,7 @@ class CustomerServiceTest {
 
     @Test
     void testGetCustomerByIdWithWireMockCloud() {
-        var underTest = new CustomerService("https://qgdoz.wiremockapi.cloud");
+        var underTest = new CustomerServiceClient("https://qgdoz.wiremockapi.cloud");
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());

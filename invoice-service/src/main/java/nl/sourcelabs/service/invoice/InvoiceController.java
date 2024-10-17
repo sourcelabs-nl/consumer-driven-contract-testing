@@ -16,10 +16,10 @@ import java.net.URI;
 @RequestMapping("/invoices")
 public class InvoiceController {
 
-    private final CustomerService customerService;
+    private final CustomerServiceClient customerService;
     private final InvoiceService invoiceService;
 
-    public InvoiceController(CustomerService customerService, InvoiceService invoiceService) {
+    public InvoiceController(CustomerServiceClient customerService, InvoiceService invoiceService) {
         this.customerService = customerService;
         this.invoiceService = invoiceService;
     }
