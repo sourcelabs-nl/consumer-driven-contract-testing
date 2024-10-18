@@ -17,6 +17,17 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <environmentVariables>
+                        <pact.provider.version>${project.version}</pact.provider.version>
+                        <pact.verifier.publishResults>true</pact.verifier.publishResults>
+                        <pact_do_not_track>true</pact_do_not_track>
+                    </environmentVariables>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

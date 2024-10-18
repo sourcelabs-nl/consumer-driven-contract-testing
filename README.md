@@ -39,11 +39,27 @@ Now fix the pact and repeat the steps above!
 
 # Upload results
 
-We need to add the `pact.verifier.publishResults=true` to the environment variables in order
-to upload the results to the Pact broker. Run the following maven command on the customer-service:
+The maven build process is configured in such a way that the results of the verification tests are uploaded to the Pact broker, this can be done
+by specifying Pact specific environment variables. See the `pom.xml` file of the customer-service and have a look at the maven-surefire-plugin:
 
-```shell
-./mvnw -pl customer-service clean install -Dpact.verifier.publishResults=true
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <configuration>
+        <environmentVariables>
+            <pact.provider.version>${project.version}</pact.provider.version>
+            <pact.verifier.publishResults>true</pact.verifier.publishResults>
+            <pact_do_not_track>true</pact_do_not_track>
+        </environmentVariables>
+    </configuration>
+</plugin>
 ```
 
-Now go to http://localhost:9292 again, what has changed?
+You can upload the verification results by running the following command:
+
+```shell
+./mvnw -pl customer-service clean install
+```
+
+Browse to http://localhost:9292 and notice that verification results should be available!
