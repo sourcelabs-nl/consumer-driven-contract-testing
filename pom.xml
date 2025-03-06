@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>3.3.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,14 +18,13 @@
 
     <modules>
         <!-- provider -->
-        <module>customer-service</module>
+        <module>product-service</module>
         <!-- consumer -->
-        <module>invoice-service</module>
+        <module>checkout-service</module>
     </modules>
 
     <properties>
-        <java.version>17</java.version>
-        <spring-cloud.version>2023.0.1</spring-cloud.version>
+        <java.version>21</java.version>
         <pact.version>4.6.9</pact.version>
         <testcontainers.version>1.19.7</testcontainers.version>
     </properties>
@@ -41,13 +40,6 @@
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
                 <version>2.5.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
@@ -76,6 +68,12 @@
             <dependency>
                 <groupId>au.com.dius.pact.provider</groupId>
                 <artifactId>junit5spring</artifactId>
+                <version>${pact.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>au.com.dius.pact.provider</groupId>
+                <artifactId>spring6</artifactId>
                 <version>${pact.version}</version>
                 <scope>test</scope>
             </dependency>
