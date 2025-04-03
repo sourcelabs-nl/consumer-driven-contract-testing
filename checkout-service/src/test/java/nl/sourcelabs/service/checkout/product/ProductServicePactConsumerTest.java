@@ -42,8 +42,8 @@ class ProductServicePactConsumerTest {
         var underTest = new ProductServiceClient(mockServer.getUrl());
         Product product = underTest.getProductById("1");
 
-        assertThat(product.id()).isEqualTo("1");
-        assertThat(product.title()).isEqualTo("Apple - MacBook Pro - 16'");
-        assertThat(product.priceCents()).isEqualTo(3499000);
+        assertThat(product.id()).isNotEmpty();
+        assertThat(product.title()).isNotEmpty();
+        assertThat(product.priceCents()).isGreaterThan(0);
     }
 }

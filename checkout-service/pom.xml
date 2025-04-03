@@ -25,14 +25,6 @@
                     <pactBrokerUsername>pact_broker</pactBrokerUsername>
                     <pactBrokerPassword>pact_broker</pactBrokerPassword>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>publish</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
