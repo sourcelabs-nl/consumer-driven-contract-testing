@@ -27,8 +27,8 @@ public class ProductServiceVerifierPactTest {
     @MockBean
     ProductService productService;
 
-    @State("product exists with id: 1")
-    public void productExistsWithId1() {
+    @State({"a product exists"})
+    public void aProductExists() {
         when(productService.getProductById("1"))
             .thenReturn(new Product("1", "Apple - MacBook Pro - 16'", 3499_000));
     }

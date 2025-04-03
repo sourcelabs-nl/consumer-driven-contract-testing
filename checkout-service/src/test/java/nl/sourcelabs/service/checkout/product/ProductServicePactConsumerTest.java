@@ -18,7 +18,7 @@ class ProductServicePactConsumerTest {
     @Pact(consumer = "checkout-service")
     public V4Pact getProductById(PactDslWithProvider builder) {
         return builder
-            .given("product exists with id: 1")
+            .given("a product exists")
             .uponReceiving("get product by id")
             .path("/products/1")
             .method("GET")
