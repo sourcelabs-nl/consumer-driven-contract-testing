@@ -14,7 +14,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.mockito.Mockito.when;
 
-@Disabled
 @SpringBootTest
 public class BaseTestClass {
 
@@ -34,5 +33,7 @@ public class BaseTestClass {
     private CustomerService customerService;
 
     private void setupMocksForVerifierTests() {
+        when(customerService.getCustomerById("cust123"))
+            .thenReturn(new Customer("cust123", new InvoiceAddress("1234AB", "123")));
     }
 }

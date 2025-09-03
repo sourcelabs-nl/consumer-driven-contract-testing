@@ -20,7 +20,7 @@ Contract.make {
         body([
             customerId: "cust123",
             invoiceAddress: [
-                postalCode: "1234AB",
+                zipCode: "1234AB",
                 houseNumber: "123"
             ]
         ])

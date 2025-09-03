@@ -21,7 +21,7 @@ class CustomerServiceTest {
                             {
                               "customerId": "cust123",
                               "invoiceAddress" : {
-                                "postalCode" : "1234AB",
+                                "zipCode" : "1234AB",
                                 "houseNumber" : "123"
                               }
                             }
@@ -32,7 +32,7 @@ class CustomerServiceTest {
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());
-        assertEquals("1234AB", customer.invoiceAddress().postalCode());
+        assertEquals("1234AB", customer.invoiceAddress().zipCode());
         assertEquals("123", customer.invoiceAddress().houseNumber());
     }
 
@@ -42,7 +42,7 @@ class CustomerServiceTest {
         Customer customer = underTest.getCustomerById("cust123");
 
         assertEquals("cust123", customer.customerId());
-        assertEquals("1234AB", customer.invoiceAddress().postalCode());
+        assertEquals("1234AB", customer.invoiceAddress().zipCode());
         assertEquals("123", customer.invoiceAddress().houseNumber());
     }
 }
